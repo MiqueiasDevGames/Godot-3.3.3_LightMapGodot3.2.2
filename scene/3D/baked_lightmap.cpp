@@ -120,6 +120,13 @@ int BakedLightmapData::get_user_instance(int p_user) const {
 void BakedLightmapData::clear_users() {
 	users.clear();
 }
+void BakedLightmapData::clear_data() {
+	clear_users();
+	if (baked_light.is_valid()) {
+		VS::get_singleton()->free(baked_light);
+	}
+	baked_light = VS::get_singleton()->lightmap_capture_create();
+}
 
 void BakedLightmapData::_set_user_data(const Array &p_data) {
 
@@ -169,6 +176,7 @@ void BakedLightmapData::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_user_path", "user_idx"), &BakedLightmapData::get_user_path);
 	ClassDB::bind_method(D_METHOD("get_user_lightmap", "user_idx"), &BakedLightmapData::get_user_lightmap);
 	ClassDB::bind_method(D_METHOD("clear_users"), &BakedLightmapData::clear_users);
+	ClassDB::bind_method(D_METHOD("clear_data"), &BakedLightmapData::clear_data);
 
 	ADD_PROPERTY(PropertyInfo(Variant::AABB, "bounds", PROPERTY_HINT_NONE, "", PROPERTY_USAGE_NOEDITOR), "set_bounds", "get_bounds");
 	ADD_PROPERTY(PropertyInfo(Variant::TRANSFORM, "cell_space_transform", PROPERTY_HINT_NONE, "", PROPERTY_USAGE_NOEDITOR), "set_cell_space_transform", "get_cell_space_transform");

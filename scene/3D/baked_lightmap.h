@@ -81,7 +81,8 @@ public:
 	Ref<Texture> get_user_lightmap(int p_user) const;
 	int get_user_instance(int p_user) const;
 	void clear_users();
-	void clear_data();	
+	void clear_data();
+		
 
 	virtual RID get_rid() const;
 	BakedLightmapData();
