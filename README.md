@@ -12,5 +12,5 @@ This way you will be able to use the BakedLight node from version 3.2.2 in versi
 
 Note: It will also be necessary to compile the export templates for it to work perfectly.
 
-If @Calinou was good people, here you can find the export models:
+If [@Calinou](https://github.com/Calinou) was good people, here you can find the export models:
 [https://github.com/godotengine/godot/issues/69876](https://github.com/godotengine/godot/issues/69876)
